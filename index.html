@@ -87,6 +87,16 @@
             border-color: #C7D2FE;
             box-shadow: 0 12px 30px -5px rgb(79 70 229 / 0.09), 0 6px 12px -4px rgb(79 70 229 / 0.04);
         }
+
+        /* Language Toggle Button Focus Styling */
+        [data-lang-btn] {
+            user-select: none;
+            cursor: pointer;
+        }
+        [data-lang-btn]:focus-visible {
+            outline: 2px solid #4f46e5;
+            outline-offset: 1px;
+        }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-slate-800 antialiased selection:bg-indigo-600 selection:text-white relative overflow-x-hidden">
@@ -118,49 +128,91 @@
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center gap-2">
                 <a href="#tentang" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-slate-100/70 px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5">
-                    <i data-lucide="user" class="w-4 h-4 text-indigo-600"></i> Tentang
+                    <i data-lucide="user" class="w-4 h-4 text-indigo-600"></i> <span data-i18n="nav.about">Tentang</span>
                 </a>
                 <a href="#pengalaman" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-slate-100/70 px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5">
-                    <i data-lucide="globe" class="w-4 h-4 text-cyan-600"></i> Pengalaman
+                    <i data-lucide="globe" class="w-4 h-4 text-cyan-600"></i> <span data-i18n="nav.experience">Pengalaman</span>
                 </a>
                 <a href="#proyek" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-slate-100/70 px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5">
-                    <i data-lucide="folder-git-2" class="w-4 h-4 text-purple-600"></i> Proyek
+                    <i data-lucide="folder-git-2" class="w-4 h-4 text-purple-600"></i> <span data-i18n="nav.projects">Proyek</span>
                 </a>
                 <a href="#kontak" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-slate-100/70 px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5">
-                    <i data-lucide="mail" class="w-4 h-4 text-pink-600"></i> Kontak
+                    <i data-lucide="mail" class="w-4 h-4 text-pink-600"></i> <span data-i18n="nav.contact">Kontak</span>
                 </a>
             </nav>
 
-            <!-- Header Action Button (Desktop) -->
+            <!-- Header Actions (Desktop: Language Toggle + CTA) -->
             <div class="hidden md:flex items-center gap-3">
+                <!-- Language Switcher Toggle (Desktop) -->
+                <div class="flex items-center bg-slate-100/90 border border-slate-200/90 rounded-xl p-1 text-xs font-semibold shadow-2xs" role="group" aria-label="Language Selector">
+                    <button 
+                        type="button" 
+                        data-lang-btn="id" 
+                        class="px-2.5 py-1 rounded-lg text-xs transition-all duration-200 flex items-center gap-1.5"
+                        title="Bahasa Indonesia">
+                        <span>🇮🇩</span>
+                        <span>ID</span>
+                    </button>
+                    <button 
+                        type="button" 
+                        data-lang-btn="en" 
+                        class="px-2.5 py-1 rounded-lg text-xs transition-all duration-200 flex items-center gap-1.5"
+                        title="English">
+                        <span>🇬🇧</span>
+                        <span>EN</span>
+                    </button>
+                </div>
+
                 <a href="#kontak" class="inline-flex items-center justify-center text-xs font-bold px-4.5 py-2.5 rounded-xl text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-md shadow-indigo-600/20 hover:shadow-indigo-600/30 transition-all duration-200 active:scale-95">
-                    <i data-lucide="briefcase" class="w-3.5 h-3.5 mr-2"></i> Rekrut Sekarang
+                    <i data-lucide="briefcase" class="w-3.5 h-3.5 mr-2"></i> <span data-i18n="nav.hireMe">Rekrut Sekarang</span>
                 </a>
             </div>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" aria-label="Buka Menu Navigasi" class="md:hidden p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors">
-                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-            </button>
+            <!-- Mobile Controls (Compact Language Switcher + Hamburger Menu) -->
+            <div class="flex items-center gap-2 md:hidden">
+                <!-- Compact Language Switcher for Mobile Header -->
+                <div class="flex items-center bg-slate-100 border border-slate-200 rounded-lg p-0.5 text-xs font-semibold">
+                    <button type="button" data-lang-btn="id" class="px-2 py-0.5 rounded text-[11px] font-semibold transition-all">ID</button>
+                    <button type="button" data-lang-btn="en" class="px-2 py-0.5 rounded text-[11px] font-semibold transition-all">EN</button>
+                </div>
+                <button id="mobile-menu-btn" aria-label="Buka Menu Navigasi" class="p-2 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Drawer Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2 shadow-lg transition-all">
+            <!-- Mobile Drawer Language Selector -->
+            <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 border border-slate-200">
+                <span class="text-xs font-semibold text-slate-600 flex items-center gap-1.5">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-indigo-600"></i> Bahasa / Language:
+                </span>
+                <div class="flex items-center bg-white border border-slate-200 rounded-lg p-0.5 text-xs">
+                    <button type="button" data-lang-btn="id" class="px-3 py-1 rounded-md text-xs transition-all flex items-center gap-1">
+                        <span>🇮🇩</span> ID
+                    </button>
+                    <button type="button" data-lang-btn="en" class="px-3 py-1 rounded-md text-xs transition-all flex items-center gap-1">
+                        <span>🇬🇧</span> EN
+                    </button>
+                </div>
+            </div>
+
             <a href="#tentang" class="mobile-nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/60 text-sm font-semibold">
-                <i data-lucide="user" class="w-4 h-4 text-indigo-600"></i> Tentang
+                <i data-lucide="user" class="w-4 h-4 text-indigo-600"></i> <span data-i18n="nav.about">Tentang</span>
             </a>
             <a href="#pengalaman" class="mobile-nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/60 text-sm font-semibold">
-                <i data-lucide="globe" class="w-4 h-4 text-cyan-600"></i> Pengalaman
+                <i data-lucide="globe" class="w-4 h-4 text-cyan-600"></i> <span data-i18n="nav.experience">Pengalaman</span>
             </a>
             <a href="#proyek" class="mobile-nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/60 text-sm font-semibold">
-                <i data-lucide="folder-git-2" class="w-4 h-4 text-purple-600"></i> Proyek
+                <i data-lucide="folder-git-2" class="w-4 h-4 text-purple-600"></i> <span data-i18n="nav.projects">Proyek</span>
             </a>
             <a href="#kontak" class="mobile-nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/60 text-sm font-semibold">
-                <i data-lucide="mail" class="w-4 h-4 text-pink-600"></i> Kontak
+                <i data-lucide="mail" class="w-4 h-4 text-pink-600"></i> <span data-i18n="nav.contact">Kontak</span>
             </a>
             <div class="pt-2">
                 <a href="#kontak" class="mobile-nav-link flex items-center justify-center gap-2 w-full text-center py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md shadow-indigo-500/20">
-                    <i data-lucide="briefcase" class="w-4 h-4"></i> Rekrut Sekarang
+                    <i data-lucide="briefcase" class="w-4 h-4"></i> <span data-i18n="nav.hireMe">Rekrut Sekarang</span>
                 </a>
             </div>
         </div>
@@ -180,24 +232,24 @@
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                         </span>
-                        <span>Tersedia untuk Posisi Tech & AI Engineer</span>
+                        <span data-i18n="hero.badge">Tersedia untuk Posisi Tech & AI Engineer</span>
                     </div>
 
                     <!-- Main Name & Headline -->
                     <div class="space-y-3">
                         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-                            Halo, Saya <br />
+                            <span data-i18n="hero.greeting">Halo, Saya</span> <br />
                             <span class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
                                 Muhammad Antariksa
                             </span>
                         </h1>
-                        <p class="text-lg sm:text-xl font-bold text-indigo-700 tracking-wide">
+                        <p class="text-lg sm:text-xl font-bold text-indigo-700 tracking-wide" data-i18n="hero.subtitle">
                             Lulusan Informatika | Machine Learning & Software Engineer
                         </p>
                     </div>
 
                     <!-- Short Bio -->
-                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-2xl">
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-normal max-w-2xl" data-i18n="hero.bio">
                         Lulusan Informatika yang berfokus pada pengembangan sistem cerdas, Machine Learning, dan rekayasa perangkat lunak. Suka membangun aplikasi web interaktif yang menyelesaikan masalah nyata menggunakan data dan teknologi modern.
                     </p>
 
@@ -205,21 +257,21 @@
                     <div class="flex flex-wrap items-center gap-4 pt-2">
                         <!-- CTA 1: Lihat Proyek Saya -->
                         <a href="#proyek" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 hover:-translate-y-0.5 transition-all duration-200 active:scale-95 group">
-                            <span>Lihat Proyek Saya</span>
+                            <span data-i18n="hero.ctaProjects">Lihat Proyek Saya</span>
                             <i data-lucide="arrow-down-right" class="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></i>
                         </a>
                         
                         <!-- CTA 2: LinkedIn Profil -->
                         <a href="https://www.linkedin.com/in/muhammadantariksa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-bold text-sm text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 hover:border-slate-400 shadow-sm hover:text-slate-900 hover:-translate-y-0.5 transition-all duration-200 active:scale-95 group">
                             <i data-lucide="linkedin" class="w-4 h-4 mr-2 text-indigo-600"></i>
-                            <span>LinkedIn Profil</span>
+                            <span data-i18n="hero.ctaLinkedin">LinkedIn Profil</span>
                             <i data-lucide="external-link" class="w-3.5 h-3.5 ml-2 opacity-60 group-hover:opacity-100 transition-opacity"></i>
                         </a>
                     </div>
 
                     <!-- Skill & Tech Stack Pill Highlights -->
                     <div class="pt-6 border-t border-slate-200">
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Teknologi & Keahlian Utama</p>
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3" data-i18n="hero.skillsTitle">Teknologi & Keahlian Utama</p>
                         <div class="flex flex-wrap items-center gap-2">
                             <span class="px-3 py-1.5 rounded-lg bg-indigo-50 border border-indigo-100 text-xs font-semibold text-indigo-700 flex items-center gap-1.5 shadow-2xs hover:bg-indigo-100/70 transition-colors">
                                 <i data-lucide="brain" class="w-3.5 h-3.5 text-indigo-600"></i> Machine Learning
@@ -265,11 +317,11 @@
                                         <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                                     </span>
                                     <div>
-                                        <p class="text-xs font-bold text-slate-900 leading-tight">Ready for Work</p>
-                                        <p class="text-[10px] font-medium text-slate-500">AI / ML & Software Eng.</p>
+                                        <p class="text-xs font-bold text-slate-900 leading-tight" data-i18n="hero.cardReady">Ready for Work</p>
+                                        <p class="text-[10px] font-medium text-slate-500" data-i18n="hero.cardRole">AI / ML & Software Eng.</p>
                                     </div>
                                 </div>
-                                <span class="px-2 py-1 rounded-md bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-indigo-700">
+                                <span class="px-2 py-1 rounded-md bg-indigo-50 border border-indigo-100 text-[10px] font-bold text-indigo-700" data-i18n="hero.cardType">
                                     Full-Time
                                 </span>
                             </div>
@@ -278,13 +330,13 @@
                         <!-- Top Floating Pill Badge -->
                         <div class="absolute -top-3 -right-2 sm:-right-4 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 shadow-lg flex items-center gap-2 animate-float">
                             <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
-                            <span class="text-xs font-bold text-slate-800">Fresh Graduate</span>
+                            <span class="text-xs font-bold text-slate-800" data-i18n="hero.badgeFresh">Fresh Graduate</span>
                         </div>
 
                         <!-- Bottom Left Floating Pill Badge -->
                         <div class="absolute -bottom-3 -left-2 sm:-left-4 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 shadow-lg flex items-center gap-2 animate-float-delayed">
                             <i data-lucide="award" class="w-4 h-4 text-indigo-600"></i>
-                            <span class="text-xs font-bold text-slate-800">Delegasi Jepang</span>
+                            <span class="text-xs font-bold text-slate-800" data-i18n="hero.badgeDelegate">Delegasi Jepang</span>
                         </div>
 
                     </div>
@@ -307,33 +359,33 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-extrabold text-slate-900">Muhammad Antariksa</h3>
-                                <p class="text-xs text-indigo-600 font-bold tracking-wide">S1 Teknik Informatika</p>
+                                <p class="text-xs text-indigo-600 font-bold tracking-wide" data-i18n="about.degree">S1 Teknik Informatika</p>
                             </div>
                         </div>
 
                         <div class="space-y-3 pt-2">
                             <div class="flex items-center justify-between text-xs py-2 border-b border-slate-100">
-                                <span class="text-slate-500">Fokus Bidang</span>
-                                <span class="font-bold text-slate-800">AI / ML & Software Eng.</span>
+                                <span class="text-slate-500" data-i18n="about.focusLabel">Fokus Bidang</span>
+                                <span class="font-bold text-slate-800" data-i18n="about.focusVal">AI / ML & Software Eng.</span>
                             </div>
                             <div class="flex items-center justify-between text-xs py-2 border-b border-slate-100">
-                                <span class="text-slate-500">Status</span>
+                                <span class="text-slate-500" data-i18n="about.statusLabel">Status</span>
                                 <span class="font-bold text-emerald-600 flex items-center gap-1.5">
-                                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Ready for Hire
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> <span data-i18n="about.statusVal">Ready for Hire</span>
                                 </span>
                             </div>
                             <div class="flex items-center justify-between text-xs py-2 border-b border-slate-100">
-                                <span class="text-slate-500">Lokasi</span>
-                                <span class="font-bold text-slate-800">Indonesia</span>
+                                <span class="text-slate-500" data-i18n="about.locLabel">Lokasi</span>
+                                <span class="font-bold text-slate-800" data-i18n="about.locVal">Indonesia</span>
                             </div>
                         </div>
 
                         <!-- Key HR Value Points -->
                         <div class="bg-indigo-50/70 border border-indigo-100 rounded-xl p-4 space-y-2">
                             <p class="text-xs font-bold text-indigo-900 flex items-center gap-1.5">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-600"></i> Kenapa Memilih Saya?
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-600"></i> <span data-i18n="about.whyTitle">Kenapa Memilih Saya?</span>
                             </p>
-                            <p class="text-xs text-slate-700 leading-relaxed font-normal">
+                            <p class="text-xs text-slate-700 leading-relaxed font-normal" data-i18n="about.whyDesc">
                                 Memiliki kombinasi analitis data komputasi machine learning serta kemampuan rekayasa web frontend/backend yang siap diimplementasikan langsung pada ekosistem industri.
                             </p>
                         </div>
@@ -343,34 +395,34 @@
                 <!-- Right: Content & Competencies -->
                 <div class="w-full md:w-7/12 space-y-6">
                     <div class="inline-flex items-center gap-2 text-xs font-bold text-indigo-700 uppercase tracking-wider bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
-                        <i data-lucide="user-check" class="w-3.5 h-3.5"></i> Ringkasan Kualifikasi
+                        <i data-lucide="user-check" class="w-3.5 h-3.5"></i> <span data-i18n="about.badge">Ringkasan Kualifikasi</span>
                     </div>
                     
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight" data-i18n="about.heading">
                         Menghubungkan Algoritma Machine Learning dengan Pengalaman Pengguna Berdampak.
                     </h2>
 
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="about.desc">
                         Sebagai lulusan Informatika, saya berdedikasi membangun aplikasi cerdas berkinerja tinggi. Fokus utama saya mencakup pembuatan model machine learning yang akurat, pengolahan data time series & kesehatan, serta pengemasan model ke dalam antarmuka web interaktif yang siap diakses pengguna maupun stakeholder bisnis.
                     </p>
 
                     <!-- Metrics / Stats Grid -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-4">
                         <div class="light-card rounded-xl p-4 hover:border-indigo-300 transition-colors">
-                            <div class="text-2xl font-extrabold text-indigo-600">2+</div>
-                            <div class="text-xs text-slate-500 font-semibold mt-1">Proyek ML Live</div>
+                            <div class="text-2xl font-extrabold text-indigo-600" data-i18n="about.stat1.val">2+</div>
+                            <div class="text-xs text-slate-500 font-semibold mt-1" data-i18n="about.stat1.label">Proyek ML Live</div>
                         </div>
                         <div class="light-card rounded-xl p-4 hover:border-cyan-300 transition-colors">
-                            <div class="text-2xl font-extrabold text-cyan-600">Jepang</div>
-                            <div class="text-xs text-slate-500 font-semibold mt-1">Delegasi Global</div>
+                            <div class="text-2xl font-extrabold text-cyan-600" data-i18n="about.stat2.val">Jepang</div>
+                            <div class="text-xs text-slate-500 font-semibold mt-1" data-i18n="about.stat2.label">Delegasi Global</div>
                         </div>
                         <div class="light-card rounded-xl p-4 hover:border-purple-300 transition-colors">
-                            <div class="text-2xl font-extrabold text-purple-600">100%</div>
-                            <div class="text-xs text-slate-500 font-semibold mt-1">Web Deployed</div>
+                            <div class="text-2xl font-extrabold text-purple-600" data-i18n="about.stat3.val">100%</div>
+                            <div class="text-xs text-slate-500 font-semibold mt-1" data-i18n="about.stat3.label">Web Deployed</div>
                         </div>
                         <div class="light-card rounded-xl p-4 hover:border-pink-300 transition-colors">
-                            <div class="text-2xl font-extrabold text-pink-600">S1</div>
-                            <div class="text-xs text-slate-500 font-semibold mt-1">Informatika</div>
+                            <div class="text-2xl font-extrabold text-pink-600" data-i18n="about.stat4.val">S1</div>
+                            <div class="text-xs text-slate-500 font-semibold mt-1" data-i18n="about.stat4.label">Informatika</div>
                         </div>
                     </div>
 
@@ -383,12 +435,12 @@
         <section id="pengalaman" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-200">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                 <div class="inline-flex items-center gap-2 text-xs font-bold text-cyan-700 uppercase tracking-wider bg-cyan-50 px-3.5 py-1 rounded-full border border-cyan-200">
-                    <i data-lucide="globe" class="w-3.5 h-3.5"></i> International Experience
+                    <i data-lucide="globe" class="w-3.5 h-3.5"></i> <span data-i18n="experience.badge">Pengalaman Internasional</span>
                 </div>
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight" data-i18n="experience.heading">
                     Pengalaman di Jepang
                 </h2>
-                <p class="text-slate-500 text-sm sm:text-base">
+                <p class="text-slate-500 text-sm sm:text-base" data-i18n="experience.sub">
                     Dokumentasi keterlibatan dalam delegasi akademik internasional, pendampingan MoU Universitas, serta pengabdian masyarakat lintas budaya di Jepang.
                 </p>
             </div>
@@ -403,47 +455,47 @@
                         <div class="lg:col-span-7 space-y-5">
                             <div class="flex flex-wrap items-center gap-2.5">
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-100">
-                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-indigo-600"></i> Jepang
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-indigo-600"></i> <span data-i18n="experience.conf.bCountry">Jepang</span>
                                 </span>
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-purple-50 text-purple-700 border border-purple-100">
-                                    <i data-lucide="award" class="w-3.5 h-3.5 text-purple-600"></i> IEEE Student Branch (ASB)
+                                    <i data-lucide="award" class="w-3.5 h-3.5 text-purple-600"></i> <span data-i18n="experience.conf.bOrg">IEEE Student Branch (ASB)</span>
                                 </span>
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
-                                    <i data-lucide="users" class="w-3.5 h-3.5 text-emerald-600"></i> Team Support Delegasi
+                                    <i data-lucide="users" class="w-3.5 h-3.5 text-emerald-600"></i> <span data-i18n="experience.conf.bRole">Team Support Delegasi</span>
                                 </span>
                             </div>
 
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" data-i18n="experience.conf.title">
                                 Pendampingan MoU & Technical Support Konferensi Internasional di Jepang
                             </h3>
 
-                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="experience.conf.p1">
                                 Sebagai perwakilan mahasiswa dari IEEE Student Branch (ASB), saya dan 2 teman saya diberangkatkan untuk membantu jalannya acara dan mendampingi para dosen Universitas Amikom yang juga memiliki agenda penandatanganan MoU dengan beberapa universitas ternama di Jepang. Pengalaman ini tidak hanya memperluas wawasan kami, tetapi juga memberikan pelajaran berharga tentang profesionalisme dalam acara berskala internasional.
                             </p>
 
-                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="experience.conf.p2">
                                 Tim kami memiliki tanggung jawab yang berbeda-beda. Ada yang bertugas mengelola live streaming melalui kanal YouTube amikomjogja, mendokumentasikan acara menggunakan kamera dan gimbal, serta mendesain materi visual seperti poster, sertifikat, dan banner. Kami merasa bangga dapat menjalankan tugas kami dengan lancar, mulai dari memastikan kelancaran live streaming, dokumentasi, hingga mendukung kebutuhan teknis lainnya.
                             </p>
 
                             <!-- Key Responsibilities Badges -->
                             <div class="pt-2">
-                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Tanggung Jawab & Kontribusi:</p>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3" data-i18n="experience.conf.respTitle">Tanggung Jawab & Kontribusi:</p>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                     <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-medium text-slate-700 hover:bg-slate-100/80 transition-colors">
                                         <i data-lucide="video" class="w-4 h-4 text-indigo-600 shrink-0"></i>
-                                        <span>Live Streaming YouTube amikomjogja</span>
+                                        <span data-i18n="experience.conf.resp1">Live Streaming YouTube amikomjogja</span>
                                     </div>
                                     <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-medium text-slate-700 hover:bg-slate-100/80 transition-colors">
                                         <i data-lucide="camera" class="w-4 h-4 text-purple-600 shrink-0"></i>
-                                        <span>Dokumentasi Kamera & Gimbal</span>
+                                        <span data-i18n="experience.conf.resp2">Dokumentasi Kamera & Gimbal</span>
                                     </div>
                                     <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-medium text-slate-700 hover:bg-slate-100/80 transition-colors">
                                         <i data-lucide="palette" class="w-4 h-4 text-pink-600 shrink-0"></i>
-                                        <span>Desain Poster, Sertifikat & Banner</span>
+                                        <span data-i18n="experience.conf.resp3">Desain Poster, Sertifikat & Banner</span>
                                     </div>
                                     <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-medium text-slate-700 hover:bg-slate-100/80 transition-colors">
                                         <i data-lucide="handshake" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-                                        <span>Dukungan Agenda MoU Dosen</span>
+                                        <span data-i18n="experience.conf.resp4">Dukungan Agenda MoU Dosen</span>
                                     </div>
                                 </div>
                             </div>
@@ -451,18 +503,18 @@
 
                         <!-- Images (Right - 5 cols) -->
                         <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-                            <div class="group relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 aspect-[4/3] cursor-pointer" onclick="openLightbox('./assets/japan_conference_1.jpg', 'Dokumentasi Konferensi dan Delegasi di Jepang - Sesi 1')">
+                            <div class="group relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 aspect-[4/3] cursor-pointer" onclick="openLightboxFromKey('./assets/japan_conference_1.jpg', 'experience.conf.img1Caption')">
                                 <img src="./assets/japan_conference_1.jpg" alt="Dokumentasi Konferensi dan Delegasi di Jepang 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-3.5">
-                                    <span class="text-xs font-semibold text-white">Dokumentasi Delegasi & Acara</span>
+                                    <span class="text-xs font-semibold text-white" data-i18n="experience.conf.img1Caption">Dokumentasi Delegasi & Acara</span>
                                     <span class="p-1.5 rounded-lg bg-white/20 backdrop-blur-md text-white"><i data-lucide="maximize-2" class="w-3.5 h-3.5"></i></span>
                                 </div>
                             </div>
 
-                            <div class="group relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 aspect-[4/3] cursor-pointer" onclick="openLightbox('./assets/japan_conference_2.jpg', 'Dokumentasi Team Support & MoU Signing di Jepang - Sesi 2')">
+                            <div class="group relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 aspect-[4/3] cursor-pointer" onclick="openLightboxFromKey('./assets/japan_conference_2.jpg', 'experience.conf.img2Caption')">
                                 <img src="./assets/japan_conference_2.jpg" alt="Dokumentasi Konferensi dan Delegasi di Jepang 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-3.5">
-                                    <span class="text-xs font-semibold text-white">Team Support & MoU Signing</span>
+                                    <span class="text-xs font-semibold text-white" data-i18n="experience.conf.img2Caption">Team Support & MoU Signing</span>
                                     <span class="p-1.5 rounded-lg bg-white/20 backdrop-blur-md text-white"><i data-lucide="maximize-2" class="w-3.5 h-3.5"></i></span>
                                 </div>
                             </div>
@@ -477,10 +529,10 @@
                         
                         <!-- Image (Left on Desktop - 5 cols) -->
                         <div class="lg:col-span-5 order-2 lg:order-1">
-                            <div class="group relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 aspect-[4/3] cursor-pointer" onclick="openLightbox('./assets/japan_community_service.jpg', 'Program Pengabdian Masyarakat di Lembaga AJU (一般社団法人あじゅ), Kanazawa')">
+                            <div class="group relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 aspect-[4/3] cursor-pointer" onclick="openLightboxFromKey('./assets/japan_community_service.jpg', 'experience.community.imgCaption')">
                                 <img src="./assets/japan_community_service.jpg" alt="Pengabdian Masyarakat di Lembaga AJU Kanazawa Jepang" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4">
-                                    <span class="text-xs font-semibold text-white">Lembaga AJU (一般社団法人あじゅ) - Kanazawa</span>
+                                    <span class="text-xs font-semibold text-white" data-i18n="experience.community.imgCaption">Lembaga AJU (一般社団法人あじゅ) - Kanazawa</span>
                                     <span class="p-1.5 rounded-lg bg-white/20 backdrop-blur-md text-white"><i data-lucide="maximize-2" class="w-3.5 h-3.5"></i></span>
                                 </div>
                             </div>
@@ -490,39 +542,39 @@
                         <div class="lg:col-span-7 space-y-5 order-1 lg:order-2">
                             <div class="flex flex-wrap items-center gap-2.5">
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-pink-50 text-pink-700 border border-pink-100">
-                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-pink-600"></i> Kanazawa, Jepang
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-pink-600"></i> <span data-i18n="experience.community.bLoc">Kanazawa, Jepang</span>
                                 </span>
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-100">
-                                    <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-amber-600"></i> Pengabdian Masyarakat
+                                    <i data-lucide="heart-handshake" class="w-3.5 h-3.5 text-amber-600"></i> <span data-i18n="experience.community.bType">Pengabdian Masyarakat</span>
                                 </span>
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-cyan-50 text-cyan-700 border border-cyan-100">
-                                    <i data-lucide="building-2" class="w-3.5 h-3.5 text-cyan-600"></i> Lembaga AJU (一般社団法人あじゅ)
+                                    <i data-lucide="building-2" class="w-3.5 h-3.5 text-cyan-600"></i> <span data-i18n="experience.community.bOrg">Lembaga AJU (一般社団法人あじゅ)</span>
                                 </span>
                             </div>
 
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" data-i18n="experience.community.title">
                                 Program Pengabdian Masyarakat: Membawa Budaya Indonesia untuk Lansia & Disabilitas di Jepang
                             </h3>
 
-                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n="experience.community.p1">
                                 Sebagai bagian dari rangkaian kunjungan akademik ke Jepang yaitu program pengabdian masyarakat, kami mengunjungi tempat lansia difabel di Kanazawa tepatnya di Lembaga AJU (一般社団法人あじゅ), yaitu Sebuah organisasi nirlaba yang berfokus pada pengembangan dan dukungan untuk lansia penyandang disabilitas.
                             </p>
 
-                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed" data-i18n-html="experience.community.p2">
                                 Agenda ini mengusung tema <span class="text-indigo-700 font-bold">“Membawa Kebudayaan Indonesia kepada Lansia dan Disabilitas Jepang”</span>, dan ditujukan untuk berbagi inspirasi sekaligus memperkenalkan budaya Indonesia kepada warga lansia dan difabel setempat. Di sana, saya dan team memperkenalkan minuman dan makanan khas Indonesia, seperti secang dan bakpia. Kami juga berkesempatan untuk membeli hasil kerajinan tangan yang dibuat oleh para lansia tersebut.
                             </p>
 
                             <!-- Key Highlights -->
                             <div class="pt-2">
-                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Sorotan Kegiatan & Dampak Sosial:</p>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3" data-i18n="experience.community.highlightTitle">Sorotan Kegiatan & Dampak Sosial:</p>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                     <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-medium text-slate-700 hover:bg-slate-100/80 transition-colors">
                                         <i data-lucide="sparkles" class="w-4 h-4 text-amber-600 shrink-0"></i>
-                                        <span>Diplomasi Kuliner & Budaya (Secang & Bakpia)</span>
+                                        <span data-i18n="experience.community.highlight1">Diplomasi Kuliner & Budaya (Secang & Bakpia)</span>
                                     </div>
                                     <div class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-medium text-slate-700 hover:bg-slate-100/80 transition-colors">
                                         <i data-lucide="heart" class="w-4 h-4 text-pink-600 shrink-0"></i>
-                                        <span>Apresiasi Kerajinan Tangan Lansia Difabel</span>
+                                        <span data-i18n="experience.community.highlight2">Apresiasi Kerajinan Tangan Lansia Difabel</span>
                                     </div>
                                 </div>
                             </div>
@@ -538,12 +590,12 @@
         <section id="proyek" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-200">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                 <div class="inline-flex items-center gap-2 text-xs font-bold text-purple-700 uppercase tracking-wider bg-purple-50 px-3.5 py-1 rounded-full border border-purple-200">
-                    <i data-lucide="layers" class="w-3.5 h-3.5"></i> Featured Projects
+                    <i data-lucide="layers" class="w-3.5 h-3.5"></i> <span data-i18n="projects.badge">Featured Projects</span>
                 </div>
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight" data-i18n="projects.heading">
                     Proyek Unggulan
                 </h2>
-                <p class="text-slate-500 text-sm sm:text-base">
+                <p class="text-slate-500 text-sm sm:text-base" data-i18n="projects.sub">
                     Berikut adalah showcase karya aplikasi web berbasis Machine Learning yang telah dideploy dan siap diuji secara langsung oleh Tech HR.
                 </p>
             </div>
@@ -560,7 +612,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent opacity-60"></div>
                             <div class="absolute top-4 left-4">
                                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-pink-700 border border-pink-200 shadow-sm backdrop-blur-md flex items-center gap-1.5">
-                                    <i data-lucide="heart-pulse" class="w-3.5 h-3.5 text-pink-600"></i> Health & Machine Learning
+                                    <i data-lucide="heart-pulse" class="w-3.5 h-3.5 text-pink-600"></i> <span data-i18n="projects.p1.cat">Health & Machine Learning</span>
                                 </span>
                             </div>
                             <div class="absolute top-4 right-4">
@@ -573,11 +625,11 @@
                         <!-- Project Details -->
                         <div class="p-6 sm:p-8 space-y-4">
                             <h3 class="text-2xl font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors flex items-center justify-between">
-                                <span>Stunting Prediction App</span>
+                                <span data-i18n="projects.p1.title">Stunting Prediction App</span>
                                 <i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"></i>
                             </h3>
 
-                            <p class="text-slate-600 text-sm leading-relaxed font-normal">
+                            <p class="text-slate-600 text-sm leading-relaxed font-normal" data-i18n="projects.p1.desc">
                                 Platform web interaktif yang dirancang untuk membantu memprediksi, mendeteksi secara dini, serta menganalisis risiko stunting pada anak berdasarkan indikator kesehatan antropometri menggunakan model komputasi yang akurat.
                             </p>
 
@@ -599,7 +651,7 @@
                     <!-- Action Button Footer -->
                     <div class="p-6 sm:p-8 pt-0">
                         <a href="https://stunting-prediction-app.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-md shadow-indigo-600/20 hover:shadow-indigo-600/35 transition-all duration-200 group/btn">
-                            <span>Buka Live Demo</span>
+                            <span data-i18n="projects.liveDemo">Buka Live Demo</span>
                             <i data-lucide="external-link" class="w-4 h-4 group-hover/btn:scale-110 transition-transform"></i>
                         </a>
                     </div>
@@ -614,7 +666,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent opacity-60"></div>
                             <div class="absolute top-4 left-4">
                                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-amber-700 border border-amber-200 shadow-sm backdrop-blur-md flex items-center gap-1.5">
-                                    <i data-lucide="trending-up" class="w-3.5 h-3.5 text-amber-600"></i> Finance & Time Series
+                                    <i data-lucide="trending-up" class="w-3.5 h-3.5 text-amber-600"></i> <span data-i18n="projects.p2.cat">Finance & Time Series</span>
                                 </span>
                             </div>
                             <div class="absolute top-4 right-4">
@@ -627,11 +679,11 @@
                         <!-- Project Details -->
                         <div class="p-6 sm:p-8 space-y-4">
                             <h3 class="text-2xl font-extrabold text-slate-900 group-hover:text-purple-600 transition-colors flex items-center justify-between">
-                                <span>Analisis Prediksi Harga Emas</span>
+                                <span data-i18n="projects.p2.title">Analisis Prediksi Harga Emas</span>
                                 <i data-lucide="arrow-up-right" class="w-5 h-5 text-slate-400 group-hover:text-purple-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"></i>
                             </h3>
 
-                            <p class="text-slate-600 text-sm leading-relaxed font-normal">
+                            <p class="text-slate-600 text-sm leading-relaxed font-normal" data-i18n="projects.p2.desc">
                                 Sistem analisis dan peramalan berbasis web untuk memprediksi tren pergerakan harga komoditas emas. Menggunakan pendekatan machine learning / time series forecasting untuk membantu pengambilan keputusan investasi atau konversi aset.
                             </p>
 
@@ -653,7 +705,7 @@
                     <!-- Action Button Footer -->
                     <div class="p-6 sm:p-8 pt-0">
                         <a href="https://analisis-prediksi-emas-menggunakan.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-md shadow-purple-600/20 hover:shadow-purple-600/35 transition-all duration-200 group/btn">
-                            <span>Buka Live Demo</span>
+                            <span data-i18n="projects.liveDemo">Buka Live Demo</span>
                             <i data-lucide="external-link" class="w-4 h-4 group-hover/btn:scale-110 transition-transform"></i>
                         </a>
                     </div>
@@ -667,12 +719,12 @@
             <div class="rounded-3xl p-8 sm:p-12 text-center space-y-8 bg-gradient-to-br from-indigo-50/70 via-white to-purple-50/70 border border-slate-200 shadow-xl relative overflow-hidden">
                 <div class="space-y-3">
                     <div class="inline-flex items-center gap-2 text-xs font-bold text-pink-700 uppercase tracking-wider bg-pink-50 px-3.5 py-1 rounded-full border border-pink-200">
-                        <i data-lucide="send" class="w-3.5 h-3.5"></i> Hubungi Saya
+                        <i data-lucide="send" class="w-3.5 h-3.5"></i> <span data-i18n="contact.badge">Hubungi Saya</span>
                     </div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="contact.heading">
                         Tertarik Membangun Proyek Bersama?
                     </h2>
-                    <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-normal">
+                    <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-normal" data-i18n="contact.sub">
                         Saya selalu terbuka untuk berdiskusi tentang peluang kerja, rekrutmen tim engineering, atau proyek Machine Learning dan Software Development.
                     </p>
                 </div>
@@ -680,11 +732,11 @@
                 <!-- Contact Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="mailto:arik2002arik@gmail.com" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/40 transition-all duration-200 active:scale-95">
-                        <i data-lucide="mail" class="w-4 h-4 mr-2"></i> Kirim Email Langsung
+                        <i data-lucide="mail" class="w-4 h-4 mr-2"></i> <span data-i18n="contact.emailBtn">Kirim Email Langsung</span>
                     </a>
                     
                     <a href="https://www.linkedin.com/in/muhammadantariksa" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-bold text-sm text-slate-700 bg-white border border-slate-300 hover:border-indigo-400 hover:text-indigo-600 shadow-sm transition-all duration-200 active:scale-95">
-                        <i data-lucide="linkedin" class="w-4 h-4 mr-2 text-indigo-600"></i> LinkedIn Profil
+                        <i data-lucide="linkedin" class="w-4 h-4 mr-2 text-indigo-600"></i> <span data-i18n="contact.linkedinBtn">LinkedIn Profil</span>
                     </a>
                 </div>
             </div>
@@ -694,7 +746,7 @@
     <!-- 5. Footer -->
     <footer class="py-8 border-t border-slate-200 bg-white/90 backdrop-blur-md relative z-10">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-slate-500 text-xs sm:text-sm font-medium">
+            <p class="text-slate-500 text-xs sm:text-sm font-medium" data-i18n="footer.text">
                 © 2026 Muhammad Antariksa. Dibuat untuk Tech HR Showcase.
             </p>
         </div>
@@ -716,10 +768,13 @@
         </div>
     </div>
 
-    <!-- Script for Lucide Icons & Mobile Navbar toggle & Lightbox -->
+    <!-- Scripts: i18n Engine & UI Controls -->
+    <script src="i18n.js"></script>
     <script>
         // Initialize Lucide Icons
-        lucide.createIcons();
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
 
         // Mobile Navbar Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -752,7 +807,12 @@
             lightboxModal.classList.remove('hidden', 'pointer-events-none', 'opacity-0');
             lightboxModal.classList.add('flex', 'opacity-100');
             document.body.style.overflow = 'hidden';
-            lucide.createIcons();
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function openLightboxFromKey(src, captionKey) {
+            const caption = window.i18n ? window.i18n.t(captionKey) : captionKey;
+            openLightbox(src, caption);
         }
 
         function closeLightbox() {

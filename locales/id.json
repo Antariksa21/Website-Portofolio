@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Muhammad Antariksa | Portofolio Informatika & Machine Learning",
+    "description": "Portofolio Muhammad Antariksa - Lulusan Informatika berfokus pada Machine Learning, Sistem Cerdas, dan Rekayasa Perangkat Lunak."
+  },
+  "nav": {
+    "about": "Tentang",
+    "experience": "Pengalaman",
+    "projects": "Proyek",
+    "contact": "Kontak",
+    "hireMe": "Rekrut Sekarang"
+  },
+  "hero": {
+    "badge": "Tersedia untuk Posisi Tech & AI Engineer",
+    "greeting": "Halo, Saya",
+    "subtitle": "Lulusan Informatika | Machine Learning & Software Engineer",
+    "bio": "Lulusan Informatika yang berfokus pada pengembangan sistem cerdas, Machine Learning, dan rekayasa perangkat lunak. Suka membangun aplikasi web interaktif yang menyelesaikan masalah nyata menggunakan data dan teknologi modern.",
+    "ctaProjects": "Lihat Proyek Saya",
+    "ctaLinkedin": "LinkedIn Profil",
+    "skillsTitle": "Teknologi & Keahlian Utama",
+    "cardReady": "Ready for Work",
+    "cardRole": "AI / ML & Software Eng.",
+    "cardType": "Full-Time",
+    "badgeFresh": "Fresh Graduate",
+    "badgeDelegate": "Delegasi Jepang"
+  },
+  "about": {
+    "degree": "S1 Teknik Informatika",
+    "focusLabel": "Fokus Bidang",
+    "focusVal": "AI / ML & Software Eng.",
+    "statusLabel": "Status",
+    "statusVal": "Ready for Hire",
+    "locLabel": "Lokasi",
+    "locVal": "Indonesia",
+    "whyTitle": "Kenapa Memilih Saya?",
+    "whyDesc": "Memiliki kombinasi analitis data komputasi machine learning serta kemampuan rekayasa web frontend/backend yang siap diimplementasikan langsung pada ekosistem industri.",
+    "badge": "Ringkasan Kualifikasi",
+    "heading": "Menghubungkan Algoritma Machine Learning dengan Pengalaman Pengguna Berdampak.",
+    "desc": "Sebagai lulusan Informatika, saya berdedikasi membangun aplikasi cerdas berkinerja tinggi. Fokus utama saya mencakup pembuatan model machine learning yang akurat, pengolahan data time series & kesehatan, serta pengemasan model ke dalam antarmuka web interaktif yang siap diakses pengguna maupun stakeholder bisnis.",
+    "stat1": { "val": "2+", "label": "Proyek ML Live" },
+    "stat2": { "val": "Jepang", "label": "Delegasi Global" },
+    "stat3": { "val": "100%", "label": "Web Deployed" },
+    "stat4": { "val": "S1", "label": "Informatika" }
+  },
+  "experience": {
+    "badge": "Pengalaman Internasional",
+    "heading": "Pengalaman di Jepang",
+    "sub": "Dokumentasi keterlibatan dalam delegasi akademik internasional, pendampingan MoU Universitas, serta pengabdian masyarakat lintas budaya di Jepang.",
+    "conf": {
+      "bCountry": "Jepang",
+      "bOrg": "IEEE Student Branch (ASB)",
+      "bRole": "Team Support Delegasi",
+      "title": "Pendampingan MoU & Technical Support Konferensi Internasional di Jepang",
+      "p1": "Sebagai perwakilan mahasiswa dari IEEE Student Branch (ASB), saya dan 2 teman saya diberangkatkan untuk membantu jalannya acara dan mendampingi para dosen Universitas Amikom yang juga memiliki agenda penandatanganan MoU dengan beberapa universitas ternama di Jepang. Pengalaman ini tidak hanya memperluas wawasan kami, tetapi juga memberikan pelajaran berharga tentang profesionalisme dalam acara berskala internasional.",
+      "p2": "Tim kami memiliki tanggung jawab yang berbeda-beda. Ada yang bertugas mengelola live streaming melalui kanal YouTube amikomjogja, mendokumentasikan acara menggunakan kamera dan gimbal, serta mendesain materi visual seperti poster, sertifikat, dan banner. Kami merasa bangga dapat menjalankan tugas kami dengan lancar, mulai dari memastikan kelancaran live streaming, dokumentasi, hingga mendukung kebutuhan teknis lainnya.",
+      "respTitle": "Tanggung Jawab & Kontribusi:",
+      "resp1": "Live Streaming YouTube amikomjogja",
+      "resp2": "Dokumentasi Kamera & Gimbal",
+      "resp3": "Desain Poster, Sertifikat & Banner",
+      "resp4": "Dukungan Agenda MoU Dosen",
+      "img1Caption": "Dokumentasi Delegasi & Acara",
+      "img2Caption": "Team Support & MoU Signing"
+    },
+    "community": {
+      "bLoc": "Kanazawa, Jepang",
+      "bType": "Pengabdian Masyarakat",
+      "bOrg": "Lembaga AJU (一般社団法人あじゅ)",
+      "title": "Program Pengabdian Masyarakat: Membawa Budaya Indonesia untuk Lansia & Disabilitas di Jepang",
+      "p1": "Sebagai bagian dari rangkaian kunjungan akademik ke Jepang yaitu program pengabdian masyarakat, kami mengunjungi tempat lansia difabel di Kanazawa tepatnya di Lembaga AJU (一般社団法人あじゅ), yaitu Sebuah organisasi nirlaba yang berfokus pada pengembangan dan dukungan untuk lansia penyandang disabilitas.",
+      "p2": "Agenda ini mengusung tema <span class=\"text-indigo-700 font-bold\">“Membawa Kebudayaan Indonesia kepada Lansia dan Disabilitas Jepang”</span>, dan ditujukan untuk berbagi inspirasi sekaligus memperkenalkan budaya Indonesia kepada warga lansia dan difabel setempat. Di sana, saya dan team memperkenalkan minuman dan makanan khas Indonesia, seperti secang dan bakpia. Kami juga berkesempatan untuk membeli hasil kerajinan tangan yang dibuat oleh para lansia tersebut.",
+      "highlightTitle": "Sorotan Kegiatan & Dampak Sosial:",
+      "highlight1": "Diplomasi Kuliner & Budaya (Secang & Bakpia)",
+      "highlight2": "Apresiasi Kerajinan Tangan Lansia Difabel",
+      "imgCaption": "Lembaga AJU (一般社団法人あじゅ) - Kanazawa"
+    }
+  },
+  "projects": {
+    "badge": "Featured Projects",
+    "heading": "Proyek Unggulan",
+    "sub": "Berikut adalah showcase karya aplikasi web berbasis Machine Learning yang telah dideploy dan siap diuji secara langsung oleh Tech HR.",
+    "liveDemo": "Buka Live Demo",
+    "p1": {
+      "cat": "Health & Machine Learning",
+      "title": "Stunting Prediction App",
+      "desc": "Platform web interaktif yang dirancang untuk membantu memprediksi, mendeteksi secara dini, serta menganalisis risiko stunting pada anak berdasarkan indikator kesehatan antropometri menggunakan model komputasi yang akurat."
+    },
+    "p2": {
+      "cat": "Finance & Time Series",
+      "title": "Analisis Prediksi Harga Emas",
+      "desc": "Sistem analisis dan peramalan berbasis web untuk memprediksi tren pergerakan harga komoditas emas. Menggunakan pendekatan machine learning / time series forecasting untuk membantu pengambilan keputusan investasi atau konversi aset."
+    }
+  },
+  "contact": {
+    "badge": "Hubungi Saya",
+    "heading": "Tertarik Membangun Proyek Bersama?",
+    "sub": "Saya selalu terbuka untuk berdiskusi tentang peluang kerja, rekrutmen tim engineering, atau proyek Machine Learning dan Software Development.",
+    "emailBtn": "Kirim Email Langsung",
+    "linkedinBtn": "LinkedIn Profil"
+  },
+  "footer": {
+    "text": "© 2026 Muhammad Antariksa. Dibuat untuk Tech HR Showcase."
+  }
+}

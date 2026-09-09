@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "title": "Muhammad Antariksa | Informatics & Machine Learning Portfolio",
+    "description": "Portfolio of Muhammad Antariksa - Informatics graduate focusing on Machine Learning, Intelligent Systems, and Software Engineering."
+  },
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "hireMe": "Hire Me Now"
+  },
+  "hero": {
+    "badge": "Available for Tech & AI Engineer Roles",
+    "greeting": "Hello, I am",
+    "subtitle": "Informatics Graduate | Machine Learning & Software Engineer",
+    "bio": "Informatics graduate specializing in intelligent systems development, Machine Learning, and software engineering. Passionate about building interactive web applications that solve real-world problems using data and modern technologies.",
+    "ctaProjects": "Explore My Projects",
+    "ctaLinkedin": "LinkedIn Profile",
+    "skillsTitle": "Core Technologies & Skills",
+    "cardReady": "Ready for Work",
+    "cardRole": "AI / ML & Software Eng.",
+    "cardType": "Full-Time",
+    "badgeFresh": "Fresh Graduate",
+    "badgeDelegate": "Japan Delegate"
+  },
+  "about": {
+    "degree": "B.Sc. in Informatics Engineering",
+    "focusLabel": "Core Focus",
+    "focusVal": "AI / ML & Software Eng.",
+    "statusLabel": "Status",
+    "statusVal": "Ready for Hire",
+    "locLabel": "Location",
+    "locVal": "Indonesia",
+    "whyTitle": "Why Choose Me?",
+    "whyDesc": "Possesses a strong combination of computational machine learning data analytics and full frontend/backend web engineering, ready for direct impact in industry ecosystems.",
+    "badge": "Qualifications Summary",
+    "heading": "Bridging Machine Learning Algorithms with High-Impact User Experiences.",
+    "desc": "As an Informatics graduate, I am dedicated to engineering high-performance intelligent applications. My core focus spans building accurate machine learning models, processing health & time-series data, and packaging models into interactive web interfaces ready for business stakeholders and users.",
+    "stat1": { "val": "2+", "label": "Live ML Projects" },
+    "stat2": { "val": "Japan", "label": "Global Delegate" },
+    "stat3": { "val": "100%", "label": "Web Deployed" },
+    "stat4": { "val": "B.Sc.", "label": "Informatics" }
+  },
+  "experience": {
+    "badge": "International Experience",
+    "heading": "Experience in Japan",
+    "sub": "Documentation of international academic delegation involvement, university MoU facilitation, and cross-cultural community outreach in Japan.",
+    "conf": {
+      "bCountry": "Japan",
+      "bOrg": "IEEE Student Branch (ASB)",
+      "bRole": "Delegation Support Team",
+      "title": "MoU Facilitation & Technical Support at International Conference in Japan",
+      "p1": "As student representatives of the IEEE Student Branch (ASB), two peers and I were deployed to support event operations and assist Universitas Amikom lecturers during official MoU signings with prestigious universities in Japan. This experience broadened our perspective and taught valuable lessons in international professional standards.",
+      "p2": "Our team carried distinct responsibilities: managing live stream broadcasting via the amikomjogja YouTube channel, documenting events using mirrorless cameras and gimbals, and designing visual assets such as posters, certificates, and banners. We successfully ensured smooth live streaming, media capture, and real-time technical operations.",
+      "respTitle": "Responsibilities & Contributions:",
+      "resp1": "Live Streaming via YouTube amikomjogja",
+      "resp2": "Camera & Gimbal Documentation",
+      "resp3": "Poster, Certificate & Banner Design",
+      "resp4": "Faculty MoU Agenda Support",
+      "img1Caption": "Delegation & Event Media",
+      "img2Caption": "Team Support & MoU Signing"
+    },
+    "community": {
+      "bLoc": "Kanazawa, Japan",
+      "bType": "Community Outreach",
+      "bOrg": "AJU Organization (一般社団法人あじゅ)",
+      "title": "Community Outreach: Bringing Indonesian Culture to the Elderly & Disabled in Japan",
+      "p1": "As part of our academic visit to Japan for community outreach, we visited an elderly disability care center in Kanazawa at the AJU Organization (一般社団法人あじゅ), a non-profit dedicated to the empowerment and support of elderly persons with disabilities.",
+      "p2": "The mission carried the theme <span class=\"text-indigo-700 font-bold\">“Bringing Indonesian Culture to the Elderly and Disabled in Japan”</span>, aiming to share inspiration and introduce Indonesian traditions to local residents. Our team shared traditional herbal beverages (Secang) and Bakpia delicacies, while also purchasing artisanal handicrafts crafted by the elderly residents.",
+      "highlightTitle": "Key Highlights & Social Impact:",
+      "highlight1": "Culinary & Cultural Diplomacy (Secang & Bakpia)",
+      "highlight2": "Supporting Handicrafts of Elderly with Disabilities",
+      "imgCaption": "AJU Organization (一般社団法人あじゅ) - Kanazawa"
+    }
+  },
+  "projects": {
+    "badge": "Featured Projects",
+    "heading": "Featured Projects",
+    "sub": "Here is a showcase of deployed Machine Learning web applications ready for hands-on evaluation by Tech HR.",
+    "liveDemo": "Open Live Demo",
+    "p1": {
+      "cat": "Health & Machine Learning",
+      "title": "Stunting Prediction App",
+      "desc": "An interactive web platform designed to predict, detect early, and analyze child stunting risks based on anthropometric health indicators using accurate computational models."
+    },
+    "p2": {
+      "cat": "Finance & Time Series",
+      "title": "Gold Price Prediction Analysis",
+      "desc": "A web-based forecasting system predicting gold commodity price trends using machine learning and time series analysis to support investment decisions."
+    }
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "heading": "Interested in Collaborating?",
+    "sub": "I am always open to discussing career opportunities, engineering recruitment, or Machine Learning and Software Development projects.",
+    "emailBtn": "Send Direct Email",
+    "linkedinBtn": "LinkedIn Profile"
+  },
+  "footer": {
+    "text": "© 2026 Muhammad Antariksa. Crafted for Tech HR Showcase."
+  }
+}

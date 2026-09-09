@@ -1,0 +1,8 @@
+{
+  "name": "portfolio-muhammad-antariksa",
+  "version": "1.0.0",
+  "description": "Portfolio of Muhammad Antariksa - Informatics & Machine Learning Graduate",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
